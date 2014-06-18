@@ -9,7 +9,7 @@
 
 	using namespace std;
 
-	double cal_pi(int N);
+	double cal_pi(int M);
 
 int main(int argc, char *argv[]) {	
 
@@ -74,6 +74,6 @@ double cal_pi(int M) {
 			count++;
 		}
 	}
-	result = 1.0 * count / N / 4;
+	result = 1.0 * count / M / 4;
 	return result;
 }
