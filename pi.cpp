@@ -67,13 +67,13 @@ double cal_pi(int M) {
 	double x, y, r, result;
 	for (int i = 0; i < N; i++) {
 		srand(time(NULL));
-		x = 1.0 * rand() / INT_MAX;
-		y = 1.0 * rand() / INT_MAX;
+		x = rand() / (INT_MAX * 1.0);
+		y = 1.0 * rand() / (INT_MAX * 1.0);
 		r = sqrt( pow(x,2) + pow(y,2) );
 		if (r < 1) {
 			count++;
 		}
 	}
-	result = 1.0 * count / M / 4;
+	result = count / (M * 4.0);
 	return result;
 }
