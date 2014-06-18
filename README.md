@@ -29,13 +29,39 @@ or
 vim qsub-example-master/job.sh
 ```
 
-# Run example
+# Run first example
 
 ```
 qsub job.sh
 ```
 
 Right after the submission, you might `qstat` to check out if the job is sucessfully submitted.
+
+
+
+
+# run MPI example
+
+## set paths
+
+Edit `.bashrc` by
+
+```
+vi ~/.bashrc
+```
+
+Insert
+```
+source /opt/intel/composer_xe_2013/bin/compilervars.sh intel64
+export PATH=/opt/mvapich2-intel/bin/:$PATH
+export CPATH=/opt/mvapich2-intel/include/:$PATH
+```
+
+Type `:wq` to save changes. Run the following command to refresh the setting of paths:
+
+```
+source ~/.bashrc
+```
 
 
 # Reference
