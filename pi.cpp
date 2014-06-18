@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 		global_pi /= world_size;
 		// output result
 		cout << "pi = " << global_pi << endl;
-		cout << "Time elasped: " << t2 - t1 << endl;
+		cout << "Time elasped: " << t2 - t1 << "s" << endl;
 	} // end of if
 	
 	MPI_Finalize();
