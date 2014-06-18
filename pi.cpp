@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	} 
 
 	/************************************************************/
-	/*					 run core function                      */
+	/*                    run core function                     */
 	/************************************************************/
 
 	my_pi = cal_pi(N);
@@ -65,8 +65,9 @@ double cal_pi(int N) {
 	int count = 0;
 	double x, y, r, result;
 	for (int i = 0; i < N; i++) {
-		x = 1.0 * rand(time(NULL)) / INT_MAX;
-		y = 1.0 * rand(time(NULL)) / INT_MAX;
+		srand(time(NULL));
+		x = 1.0 * rand() / INT_MAX;
+		y = 1.0 * rand() / INT_MAX;
 		r = sqrt( pow(x,2) + pow(y,2) );
 		if (r < 1) {
 			count++;
