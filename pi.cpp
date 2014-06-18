@@ -60,8 +60,11 @@ double cal_pi(int M) {
 	for (int i = 0; i < N; i++) {
 		srand(time(NULL));
 		x = rand() / (INT_MAX * 1.0);
+		cout << "x = " << x << endl;
 		y = rand() / (INT_MAX * 1.0);
+		cout << "y = " << y << endl;
 		r = sqrt( pow(x,2) + pow(y,2) );
+		cout << "r = " << r << endl;
 		if (r < 1) {
 			count++;
 		}
