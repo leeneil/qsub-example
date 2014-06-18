@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
+#include <climits>
 #include <mpi.h>
 using namespace std;
 
