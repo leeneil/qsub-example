@@ -5,8 +5,6 @@
 #include <climits>
 #include <mpi.h>
 
-#define N 100
-
 	using namespace std;
 
 	double cal_pi(int M);
@@ -33,6 +31,12 @@ int main(int argc, char *argv[]) {
 	if (world_rank == 0) {
 		data = new double[world_size];
 	} 
+
+	int N = 1000;
+	if (argc > 1) {
+		N = atoi(argv[1]);
+	}
+
 
 	/************************************************************/
 	/*                    run core function                     */
