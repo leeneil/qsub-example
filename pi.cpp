@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 double cal_pi(int M) {
 	int count = 0;
 	double x, y, r, result;
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < M; i++) {
 		x = rand() / (INT_MAX * 1.0);
 		y = 1.0 * rand() / (INT_MAX * 1.0);
 		r = sqrt( pow(x,2) + pow(y,2) );
