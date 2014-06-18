@@ -75,6 +75,6 @@ double cal_pi(int M) {
 			count++;
 		}
 	}
-	result = count / (M * 4.0);
+	result = (count*4.0) / M;
 	return result;
 }
