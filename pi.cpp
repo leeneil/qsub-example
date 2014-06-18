@@ -1,19 +1,17 @@
-// ping_pong.cpp
-
-#define N 100
-
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
 #include <climits>
 #include <mpi.h>
-using namespace std;
+
+#define N 100
+
+	using namespace std;
 
 	double cal_pi(int);
 
-int main(int argc, char *argv[])
-{	
+int main(int argc, char *argv[]) {	
 
 	MPI_Init(&argc, &argv);
 
@@ -25,7 +23,6 @@ int main(int argc, char *argv[])
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
 	int t1 = (double)MPI_Wtime();
-	int i, j, t;
 	
 	double global_pi;
 	double my_pi;
@@ -41,6 +38,9 @@ int main(int argc, char *argv[])
 	/************************************************************/
 
 	my_pi = cal_pi(N);
+
+
+	/***************** END of core function *********************/
 
 	// collect results
 	MPI_Gather(&my_pi, 1, MPI_DOUBLE, 
@@ -74,6 +74,6 @@ double cal_pi(int N) {
 			count++;
 		}
 	}
-	result = 1.0 * count / N;
+	result = 1.0 * count / N / 4;
 	return result;
 }
