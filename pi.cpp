@@ -13,6 +13,7 @@
 
 int main(int argc, char *argv[]) {	
 
+	srand(time(NULL));
 	MPI_Init(&argc, &argv);
 
 	// get world size
@@ -67,7 +68,6 @@ double cal_pi(int M) {
 	int count = 0;
 	double x, y, r, result;
 	for (int i = 0; i < N; i++) {
-		srand(time(NULL));
 		x = rand() / (INT_MAX * 1.0);
 		y = 1.0 * rand() / (INT_MAX * 1.0);
 		r = sqrt( pow(x,2) + pow(y,2) );
