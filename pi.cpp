@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <cmath>
 #include <climits>
-#include <mpi.h>
 
 #define N 100
 
@@ -13,16 +12,12 @@
 
 int main(int argc, char *argv[]) {	
 
-	MPI_Init(&argc, &argv);
 
 	// get world size
-	int world_size;
-	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+	int world_size = 1;
 	// get my rank
-	int world_rank;
-	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+	int world_rank = 0;
 
-	int t1 = (double)MPI_Wtime();
 	
 	double global_pi;
 	double my_pi;
@@ -43,11 +38,9 @@ int main(int argc, char *argv[]) {
 	/***************** END of core function *********************/
 
 	// collect results
-	MPI_Gather(&my_pi, 1, MPI_DOUBLE, 
-		data, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+	data[0] = my_pi;
 
 
-	int t2 = (double)MPI_Wtime();
 	if (world_rank == 0) {
 		// calculate mean
 		for (int i = 0; i < world_size; i++) {
@@ -55,10 +48,9 @@ int main(int argc, char *argv[]) {
 		}
 		// output result
 		cout << "pi = " << global_pi << endl;
-		cout << "Time elasped: " << t2 - t1 << endl;
+
 	} // end of if
 	
-	MPI_Finalize();
 	return 0;
 }
 
@@ -68,7 +60,7 @@ double cal_pi(int M) {
 	for (int i = 0; i < N; i++) {
 		srand(time(NULL));
 		x = rand() / (INT_MAX * 1.0);
-		y = 1.0 * rand() / (INT_MAX * 1.0);
+		y = rand() / (INT_MAX * 1.0);
 		r = sqrt( pow(x,2) + pow(y,2) );
 		if (r < 1) {
 			count++;
