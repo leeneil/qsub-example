@@ -53,6 +53,7 @@ int main(int argc, char *argv[]) {
 		for (int i = 0; i < world_size; i++) {
 			global_pi += data[i];
 		}
+		global_pi /= world_size;
 		// output result
 		cout << "pi = " << global_pi << endl;
 		cout << "Time elasped: " << t2 - t1 << endl;
