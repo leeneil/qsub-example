@@ -9,7 +9,7 @@
 
 	using namespace std;
 
-	double cal_pi(int);
+	double cal_pi(int N);
 
 int main(int argc, char *argv[]) {	
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-double cal_pi(int N) {
+double cal_pi(int M) {
 	int count = 0;
 	double x, y, r, result;
 	for (int i = 0; i < N; i++) {
